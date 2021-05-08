@@ -2,33 +2,35 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Registrace na letní dětský tábor</title>
+    <title>Rekapitulace vaší registrace</title>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
 <div class="container">
-    <form class="kosik" th:action="@{/}" method="post">
-        <h1>Registrace na letní dětský tábor</h1>
+    <form class="kosik--rekapitulace" th:action="@{/}" method="post">
+        <h1>Rekapitulace vaší registrace</h1>
 
         <label for="inputJmeno" class="radek">Jméno dítěte:</label>
-        <input type="text" id="inputJmeno" name="jmeno" th:field="${form.jmeno}">
+        <input type="text" id="inputJmeno" name="jmeno" readonly th:field="${form.jmeno}">
         <div class="error" th:if="${#fields.hasErrors('form.jmeno')}" th:errors="${form.jmeno}"></div>
 
         <label for="inputPrijmeni" class="radek">Příjmení dítěte:</label>
-        <input type="text" id="inputPrijmeni" name="prijmeni" th:field="${form.prijmeni}">
+        <input type="text" id="inputPrijmeni" name="prijmeni" readonly th:field="${form.prijmeni}">
         <div class="error" th:if="${#fields.hasErrors('form.prijmeni')}" th:errors="${form.prijmeni}"></div>
 
         <label for="inputDatum" class="radek">Datum narození:</label>
-        <input type="date" id="inputDatum" name="datum" th:field="${form.datum}">
+        <input type="date" id="inputDatum" name="datum" readonly th:field="${form.datum}">
         <div class="error" th:if="${#fields.hasErrors('form.datum')}" th:errors="${form.datum}"></div>
 
         <div class="radek">Pohlaví:</div>
         <div>
-            <input type="radio" name="pohlavi" id="inputPohlavi1" th:field="${form.pohlavi}" value="POHLAVI_DIVKA">
+            <input type="radio" name="pohlavi" id="inputPohlavi1" readonly th:field="${form.pohlavi}"
+                   value="POHLAVI_DIVKA">
             <label for="inputPohlavi1">Dívka</label>
         </div>
         <div>
-            <input type="radio" name="pohlavi" id="inputPohlavi2" th:field="${form.pohlavi}" value="POHLAVI_CHLAPEC">
+            <input type="radio" name="pohlavi" id="inputPohlavi2" readonly th:field="${form.pohlavi}"
+                   value="POHLAVI_CHLAPEC">
             <label for="inputPohlavi2">Chlapec</label>
         </div>
         <div class="error" th:if="${#fields.hasErrors('form.pohlavi')}" th:errors="${form.pohlavi}"></div>
@@ -37,56 +39,54 @@
         <div class="radek">Sporty:</div>
         <div class="skupina">
             <div>
-                <input type="checkbox" name="sport" th:field="${form.sport}" value="SPORT_PLAVANI"/>
+                <input type="checkbox" name="sport" onclick="return false;" th:field="${form.sport}"
+                       value="SPORT_PLAVANI"/>
                 <label th:for="${#ids.prev('sport')}">Plavání</label>
             </div>
             <div>
-                <input type="checkbox" name="sport" th:field="${form.sport}" value="SPORT_BEH"/>
+                <input type="checkbox" name="sport" onclick="return false;" th:field="${form.sport}" value="SPORT_BEH"/>
                 <label th:for="${#ids.prev('sport')}">Běh</label>
-
             </div>
             <div>
-                <input type="checkbox" name="sport" th:field="${form.sport}" value="SPORT_CYKLISTIKA"/>
+                <input type="checkbox" name="sport" onclick="return false;" th:field="${form.sport}"
+                       value="SPORT_CYKLISTIKA"/>
                 <label th:for="${#ids.prev('sport')}">Cyklistika</label>
             </div>
             <div>
-                <input type="checkbox" name="sport" th:field="${form.sport}" value="SPORT_FOTBAL"/>
+                <input type="checkbox" name="sport" onclick="return false;" th:field="${form.sport}"
+                       value="SPORT_FOTBAL"/>
                 <label th:for="${#ids.prev('sport')}">Fotbal</label>
             </div>
             <div>
-                <input type="checkbox" name="sport" th:field="${form.sport}" value="SPORT_BASKETBAL"/>
+                <input type="checkbox" name="sport" onclick="return false;" th:field="${form.sport}"
+                       value="SPORT_BASKETBAL"/>
                 <label th:for="${#ids.prev('sport')}">Basketbal</label>
             </div>
         </div>
-        <div class="error" th:if="${#fields.hasErrors('form.sport')}" th:errors="${form.sport}"></div>
 
 
         <div class="radek">Turnus:</div>
         <div>
-            <input type="radio" name="turnus" id="inputTurnus1" th:field="${form.turnus}" value="TURNUS_1">
+            <input type="radio" name="turnus" id="inputTurnus1" readonly th:field="${form.turnus}" value="TURNUS_1">
             <label for="inputTurnus1">5.-11.7.2021</label>
         </div>
         <div>
-            <input type="radio" name="turnus" id="inputTurnus2" th:field="${form.turnus}" value="TURNUS_2">
+            <input type="radio" name="turnus" id="inputTurnus2" readonly th:field="${form.turnus}" value="TURNUS_2">
             <label for="inputTurnus2">12.-18.7.2021</label>
         </div>
         <div>
-            <input type="radio" name="turnus" id="inputTurnus3" th:field="${form.turnus}" value="TURNUS_3">
+            <input type="radio" name="turnus" id="inputTurnus3" readonly th:field="${form.turnus}" value="TURNUS_3">
             <label for="inputTurnus1">19.-25.7.2021</label>
         </div>
         <div class="error" th:if="${#fields.hasErrors('form.turnus')}" th:errors="${form.turnus}"></div>
 
 
         <label for="inputEmail" class="radek">Email:</label>
-        <input type="text" id="inputEmail" name="email" th:field="${form.email}">
+        <input type="text" id="inputEmail" name="email" readonly th:field="${form.email}">
 
         <label for="inputTelefon" class="radek">Telefon:</label>
-        <input type="text" id="inputTelefon" name="telefon" th:field="${form.telefon}">
+        <input type="text" id="inputTelefon" name="telefon" readonly th:field="${form.telefon}">
 
-
-        <div class="radek controls">
-            <button type="submit" class="btn btn-primary">Odeslat formulář</button>
-        </div>
     </form>
 </div>
 </body>
